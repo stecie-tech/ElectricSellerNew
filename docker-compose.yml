@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  frontend:
+    image: stecie/electric-sellerfrontend:latest
+    build: ./frontend/
+    ports:
+      - "3000:3000"
+    depends_on:
+      - "backend"
+    links:
+      - backend
+
+  backend:
+    image: stecie/electric-sellerbackend:latest
+    build: ./backend/
+    ports:
+      - "5000:8080"
+    depends_on:
+      - "mongo"
+  mongo:
+    image: stecie/electric-sellerdb:latest
+    build: ./
+    ports:
+      - 27017:27017
+
+  nginx:
+    image: "stecie/electric-sellernginx:latest"
+    build: ./nginx/
+    mem_limit: 128m
+    hostname: nginx
+    ports:
+      - "80:80"
