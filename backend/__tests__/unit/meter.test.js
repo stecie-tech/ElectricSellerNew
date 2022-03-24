@@ -62,7 +62,7 @@ describe("Meter endpoint", () => {
       });
   
     expect(res.status).to.equal(200);
-    expect(res.body.message).to.equal(`10 days added, now you have 30 days remaining`);
+    expect(res.body.message).to.equal(`We added 10 days for you, now you have 30 days remaining!!!`);
     await mongoose.disconnect();
   });
 
@@ -70,7 +70,7 @@ describe("Meter endpoint", () => {
     jest.spyOn(Meter, "findOne").mockReturnValue(Promise.resolve(data));
     const res = await chai.request(app).get("/api/meters/324287/details");
     expect(res.status).to.equal(200);
-    expect(res.body.message).to.equal("You have 20 days remaining");
+    expect(res.body.message).to.equal("You have 20 days remaining!!!");
     await mongoose.disconnect();
   });
 
@@ -98,10 +98,10 @@ describe("Meter endpoint", () => {
       .spyOn(Meter, "findOneAndUpdate")
       .mockReturnValue(Promise.resolve(updatedMeter));
     const res = await chai.request(app).put("/api/meters/324287").send({
-      owner_first_name: "Izabayo1",
-      owner_last_name: "Cedric",
+      owner_first_name: "Niyonzima",
+      owner_last_name: "Stecie",
     });
-    expect(res.body.message).to.equal("Meter was updated successfully.");
+    expect(res.body.message).to.equal("Your meter was updated successfully.");
   });
 
   test("PUT /api/meters/:number --> should return 404 if no data was given", async () => {

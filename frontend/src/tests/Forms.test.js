@@ -24,7 +24,7 @@ const balancePageSetup = () => {
   };
 };
 
-test("It should show an error below amount input", () => {
+test("It should show an error if it's below amount input", () => {
   const { meterInput } = buyPageSetup();
   fireEvent.change(input, { target: { value: "234" } });
   expect(
@@ -32,7 +32,7 @@ test("It should show an error below amount input", () => {
   ).toBeInTheDocument();
 });
 
-test("It should show an error below meter number input", () => {
+test("It should show an error if below meter number is an input", () => {
   const { meterInput } = buyPageSetup();
   fireEvent.change(input, { target: { value: "123" } });
   expect(
@@ -40,7 +40,7 @@ test("It should show an error below meter number input", () => {
   ).toBeInTheDocument();
 });
 
-test("It should show an error below meter number input", () => {
+test("It should show an error if below meter number input", () => {
   const { meterInput } = balancePageSetup();
   fireEvent.change(input, { target: { value: "123" } });
   expect(screen.getByText("Your meter is invalid")).toBeInTheDocument();

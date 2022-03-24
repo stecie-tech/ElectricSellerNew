@@ -34,21 +34,20 @@ const Balance = () => {
 
   return (
     <React.Fragment>
-      <Header title="Follow the instructions on the page to check your balance" />
       <main>
         <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center">
             <div className="w-full max-w-md pt-7">
               <form className="bg-white border-2 border-zinc-700 rounded px-12 pt-6 pb-8 mb-4">
-                <div className="text-xl mt-1 mb-5 font-bold text-center text-[#23af3f]">
-                  E-Power
+                <div className="text-xl mt-1 mb-5 font-bold text-center text-[#6e0958]">
+                  Online Electric Power Seller 
                 </div>
                 <div className="mb-4">
                   <label
                     className="text-gray-600 block"
                     htmlFor="username"
                   >
-                    Meter number
+                    Enter ur meter number
                   </label>
                   <input
                     value={meter.meterNumber}
@@ -72,7 +71,7 @@ const Balance = () => {
                   className="bg-main focus:outline-none w-10/12 text-white p-3 px-10 rounded-3xl mt-4"
                   type="submit"
                 >
-                  Check balance
+                  Client Can you please check ur balance???
                 </button>
               </form>
             </div>

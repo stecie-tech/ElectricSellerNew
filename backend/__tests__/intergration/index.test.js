@@ -77,29 +77,29 @@ describe("Meter endpoint", () => {
       });
   
     expect(res.status).to.equal(200);
-    expect(res.body.message).to.equal(`10 days added, now you have 10 days remaining`);
+    expect(res.body.message).to.equal(`We add 10 days for you, now you have 10 days remaining!!!`);
   });
 
   test("GET /api/meters/:id/details --> should return You have a0 days remaining", async () => {
     const res = await request(app).get(`/api/meters/${meter_number}/details`);
     expect(res.status).to.equal(200);
-    expect(res.body.message).to.equal("You have 10 days remaining");
+    expect(res.body.message).to.equal("You have 10 days remaining :)");
   });
 
 
 
   test("PUT /api/meters/:number -->should return 201 if the meter is updated", async () => {
     const res = await request(app).put(`/api/meters/${meter_number}`).send({
-      owner_first_name: "Irakiza",
-      owner_last_name: "Divin",
+      owner_first_name: "Melissa",
+      owner_last_name: "Ineza",
     });
     expect(res.body.message).to.equal("Meter was updated successfully.");
   });
 
   test("PUT /api/meters/:number --> should return 404 if no data was given", async () => {
     const res = await request(app).put(`/api/meters/100000`).send({
-      owner_first_name: "Izabayo1",
-      owner_last_name: "Cedric",
+      owner_first_name: "Niyonzima",
+      owner_last_name: "Stecie",
     });
     expect(res.body.message).to.equal("Not Found");
   });
@@ -115,7 +115,7 @@ describe("Meter endpoint", () => {
     const response = await request(app).delete(`/api/meters/${meter_number}`);
     expect(response.statusCode).to.equal(404);
     expect(response.body.message).to.equal(
-      `Could not delete Meter with number=${meter_number}`
+      `We could not delete meter with number=${meter_number}`
     );
   });
 });

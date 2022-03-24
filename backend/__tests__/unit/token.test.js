@@ -57,11 +57,11 @@ describe("Token endpoint", () => {
     expect(res.statusCode).to.equal(201);
   });
 
-  it("POST /api/token --> should not create token if total_amount is missing", async () => {
+  it("POST /api/token --> should not create token if total_amount of money is missing", async () => {
     const res = await request(app).post("/api/token").send({
       meter_number: "324287"
     });
     expect(res.statusCode).to.equal(400);
-    expect(res.body.message).to.equal('"total_amount" is required');
+    expect(res.body.message).to.equal('"total_amount" of money is required');
   });
 });
